@@ -22,11 +22,13 @@ public class FacebookLogin extends TestBase {
 		PageFactory.initElements(driver,this);
 	}
 	
-	public void login()
+	public String login() throws InterruptedException
 	{
 		email.sendKeys("swapnil.kadale@rediffmail.com");
 		password.sendKeys("Gajanan@123");
 		submit.click();
+		//Thread.sleep(300000);
+		return driver.getTitle();
 	}
 	
 	public String validateLoginPageTitle()

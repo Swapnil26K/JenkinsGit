@@ -38,7 +38,7 @@ public class LoginPageTest extends TestBase{
 	@Test(priority=1)
 	public void loginPageTitleTest(){
 		String title = loginPage.validateLoginPageTitle();
-		Assert.assertEquals(title, "Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!");
+		Assert.assertEquals(title, "Online Shopping Site for Mobiles, Furniture, Grocery, Lifestyle, Books & More. Best Offers!");
 	}
 	
 	/*

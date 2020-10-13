@@ -35,11 +35,6 @@ public class TestBase {
 	public static void initialization() throws MalformedURLException
 	{
 		String browserName = prop.getProperty("browser");
-		ChromeOptions dc=new ChromeOptions();
-		URL url=new URL("http://13.232.122.191:4444/wd/hub");
-		
-		
-		  
 		if(browserName.equals("chrome")){
 		  System.setProperty("webdriver.chrome.driver",
 		  System.getProperty("user.dir")+"\\src\\main\\java\\driver\\chromedriver.exe")

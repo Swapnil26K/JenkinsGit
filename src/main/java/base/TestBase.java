@@ -3,15 +3,21 @@ package base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class TestBase {
 	
-	public static WebDriver driver;
+	//public static WebDriver driver;
+	public static RemoteWebDriver driver;
 	public static Properties prop;
 	
 	public TestBase(){
@@ -26,21 +32,22 @@ public class TestBase {
 		}
 	}
 	
-	public static void initialization()
+	public static void initialization() throws MalformedURLException
 	{
 		String browserName = prop.getProperty("browser");
-		
 		if(browserName.equals("chrome")){
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\main\\java\\driver\\chromedriver.exe");	
-			driver = new ChromeDriver(); 
-			System.out.println("Swapnil");
-		}
-		else if(browserName.equals("FF")){
-			System.setProperty("webdriver.gecko.driver", "/Users/naveenkhunteta/Documents/SeleniumServer/geckodriver");	
-			//driver = new FirefoxDriver(); 
-		}		
-		
-		driver.get("https://www.facebook.com/");
+		  System.setProperty("webdriver.chrome.driver",
+		  System.getProperty("user.dir")+"\\src\\main\\java\\driver\\chromedriver.exe")
+		  ;
+		  
+		  System.out.println("Swapnil"); } else if(browserName.equals("FF")){
+//		  System.setProperty("webdriver.gecko.driver",
+//		  "/Users/naveenkhunteta/Documents/SeleniumServer/geckodriver"); //driver = new
+//		  FirefoxDriver();
+			  }
+		 		
+		driver = new ChromeDriver();
+		driver.get("https://www.flipkart.com/");
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);

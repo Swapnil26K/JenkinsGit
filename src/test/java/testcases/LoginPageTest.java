@@ -1,5 +1,6 @@
 package testcases;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class LoginPageTest extends TestBase{
 	}
 	
 	@BeforeMethod
-	public void setUp(){
+	public void setUp() throws MalformedURLException{
 		initialization();
 		loginPage = new FacebookLogin();	
 //		List<String> myName=new ArrayList<String>();
@@ -37,8 +38,14 @@ public class LoginPageTest extends TestBase{
 	@Test(priority=1)
 	public void loginPageTitleTest(){
 		String title = loginPage.validateLoginPageTitle();
-		Assert.assertEquals(title, "Facebook – log in or sign up");
+		Assert.assertEquals(title, "Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!");
 	}
+	
+	/*
+	 * @Test(priority=2) public void loginTest() throws InterruptedException{ String
+	 * title = loginPage.login(); Assert.assertEquals(title,
+	 * "Facebook – log in or sign up"); }
+	 */
 	
 	@AfterMethod
 	public void tearDown(){
